@@ -34,7 +34,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     set({ token });
   },
 
-  login: async (email: string, password: string) => {
+  login: async (email: string, _password: string) => {
     set({ isLoading: true });
     try {
       // Mock API call - será substituído por chamada real depois
