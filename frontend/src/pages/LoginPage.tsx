@@ -25,83 +25,97 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary via-primary to-secondary flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Background Construction Worker Image */}
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
-        <div className="absolute bottom-0 right-0 text-[500px] leading-none">👷</div>
+    <div
+      className="min-h-screen bg-gradient-to-b from-primary via-primary to-secondary flex items-center justify-center p-4 relative overflow-hidden"
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, #1e7e34, #1e7e34, #059669)',
+      }}
+    >
+      {/* Background Construction Worker - positioned right bottom */}
+      <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none text-[400px] md:text-[600px] leading-none">
+        👷
       </div>
 
-      {/* Main Container */}
+      {/* Main Content */}
       <div className="w-full max-w-sm relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-2xl">
-            <span className="text-4xl">✅</span>
+        {/* Top Header Section */}
+        <div className="text-center mb-12">
+          {/* Logo Shield */}
+          <div className="w-24 h-24 bg-gradient-to-br from-primary to-green-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg relative">
+            {/* Shield icon SVG */}
+            <svg viewBox="0 0 24 24" className="w-14 h-14 text-white" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 1L3 5v7c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="white" stroke="none"/>
+              <path d="M10 13l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
-          <h1 className="text-4xl font-black text-white mb-1">SafeCheck</h1>
-          <p className="text-white text-opacity-90 font-medium">Checklists e Relatórios</p>
-          <p className="text-white text-opacity-70 text-sm mt-2">Mais segurança, mais eficiência.</p>
+
+          {/* Brand Text */}
+          <h1 className="text-5xl font-black text-gray-900 mb-2">SafeCheck</h1>
+          <p className="text-gray-700 text-lg font-medium">Checklists e Relatórios</p>
+          <p className="text-gray-600 text-sm mt-3">Mais segurança, mais eficiência.</p>
+          <p className="text-gray-600 text-sm">Gerencie inspeções, gere relatórios</p>
+          <p className="text-gray-600 text-sm">e garanta conformidade.</p>
         </div>
 
         {/* Login Card */}
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           {/* Card Header */}
-          <div className="px-6 pt-8 pb-6 text-center">
+          <div className="px-6 sm:px-8 pt-8 pb-6 text-center border-b border-gray-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-1">Bem-vindo de volta!</h2>
-            <p className="text-gray-600 text-sm">Faça login para continuar</p>
+            <p className="text-gray-500 text-sm">Faça login para continuar</p>
           </div>
 
-          {/* Card Body */}
-          <div className="px-6 pb-8 space-y-6">
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Email Input */}
+          {/* Card Content */}
+          <div className="px-6 sm:px-8 py-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Email Field */}
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2.5">E-mail</label>
+                <label className="text-sm font-medium text-gray-700 mb-2 block">E-mail</label>
                 <div className="relative">
-                  <Mail className="absolute left-3.5 top-3.5 text-primary flex-shrink-0" size={20} />
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-primary" size={18} />
                   <input
                     type="email"
                     placeholder="E-mail ou usuário"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors text-base placeholder-gray-400"
+                    className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary transition-colors text-base"
                     required
                   />
                 </div>
               </div>
 
-              {/* Password Input */}
+              {/* Password Field */}
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2.5">Senha</label>
+                <label className="text-sm font-medium text-gray-700 mb-2 block">Senha</label>
                 <div className="relative">
-                  <Lock className="absolute left-3.5 top-3.5 text-primary flex-shrink-0" size={20} />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-primary" size={18} />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Senha"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-11 pr-11 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors text-base placeholder-gray-400"
+                    className="w-full pl-11 pr-12 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary transition-colors text-base"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-3.5 text-gray-400 hover:text-primary transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                     tabIndex={-1}
                   >
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
                 </div>
               </div>
 
-              {/* Remember & Forgot */}
+              {/* Remember & Forgot Password */}
               <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center gap-2 cursor-pointer group">
+                <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
                     className="w-4 h-4 rounded border-2 border-gray-300 accent-primary cursor-pointer"
                   />
-                  <span className="text-gray-600 group-hover:text-gray-900 transition-colors">Lembrar-me</span>
+                  <span className="text-gray-600">Lembrar-me</span>
                 </label>
                 <button type="button" className="text-primary hover:text-green-700 font-semibold transition-colors">
                   Esqueci minha senha
@@ -112,21 +126,20 @@ export function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-primary hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-colors duration-200 disabled:bg-gray-400 flex items-center justify-center gap-2 mt-2"
+                className="w-full bg-primary hover:bg-green-700 text-white font-bold py-3.5 rounded-xl transition-colors duration-200 disabled:bg-gray-400 mt-6"
               >
-                {loading ? '⏳' : ''}
-                Entrar
+                {loading ? '⏳ Entrando...' : 'Entrar'}
               </button>
             </form>
 
             {/* Divider */}
-            <div className="flex items-center gap-3">
-              <div className="flex-1 border-t border-gray-300"></div>
+            <div className="my-7 flex items-center gap-3">
+              <div className="flex-1 border-t border-gray-200"></div>
               <span className="text-gray-500 text-xs font-medium">ou continue com</span>
-              <div className="flex-1 border-t border-gray-300"></div>
+              <div className="flex-1 border-t border-gray-200"></div>
             </div>
 
-            {/* Social Buttons */}
+            {/* Social Login Buttons */}
             <div className="grid grid-cols-2 gap-3">
               <button className="flex items-center justify-center gap-2 py-3 px-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-gray-50 transition-all font-medium text-gray-700">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -145,10 +158,10 @@ export function LoginPage() {
               </button>
             </div>
 
-            {/* Sign Up */}
-            <p className="text-center text-gray-600 text-sm font-medium">
+            {/* Sign Up Link */}
+            <p className="text-center text-gray-600 text-sm font-medium mt-6">
               Não tem uma conta?{' '}
-              <button className="text-primary hover:text-green-700 font-bold transition-colors">
+              <button type="button" className="text-primary hover:text-green-700 font-bold transition-colors">
                 Cadastre-se
               </button>
             </p>
