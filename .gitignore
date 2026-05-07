@@ -1,5 +1,7 @@
 # Dependencies
 node_modules/
+package-lock.json
+yarn.lock
 .pnp
 .pnp.js
 
@@ -37,3 +39,6 @@ yarn-error.log*
 .cache/
 tmp/
 temp/
+
+# TypeScript JavaScript outputs
+frontend/src/**/*.js
